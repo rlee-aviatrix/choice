@@ -41,7 +41,7 @@ Example `accounts.yml`:
 - What do we name the duplicate security group since security group names need to be unique?
 - What tag(s) should we add to the duplicate security group if any? Maybe it makes sense to include the original security group ID? Should we add any tags to the original security groups to make it easier to find and delete later?
 - Do we need to handle IPv6? This might work already but I haven't explicitly tested.
-- When determining the private IP list, we currently get the `PrivateIpAddress` from `describe_network_interfaces`. There's also `PrivateIpAddresses` which is all private IPs assocated with the network interface. Should we be using the IPs from `PrivateIpAddresses` instead? Do we need to find private IPs from anything else besides network interfaces?
+- When determining the private IP list, we currently get the `PrivateIpAddress` from `describe_network_interfaces`. There's also `PrivateIpAddresses` which is all private IPs associated with the network interface. Should we be using the IPs from `PrivateIpAddresses` instead? Do we need to find private IPs from anything else besides network interfaces?
 - In Switch Security Groups, we update the security groups associated with network interfaces and security group rules. Do we need to update security groups anywhere else?
 - Is putting the access key and secret access key in `accounts.xml` ok?
 - Additional discussion on the workflow. How should the user run the scripts? At the SG/VPC/account level?
