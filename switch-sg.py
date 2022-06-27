@@ -102,9 +102,17 @@ def main():
     parser = argparse.ArgumentParser(description="Security Group Switcher")
     parser.add_argument("--old", nargs="+", required=True, help="Old security groups")
     parser.add_argument("--new", nargs="+", required=True, help="New security groups")
+    parser.add_argument(
+        "--accounts", help="File with AWS account information. Defaults to accounts.yml"
+    )
     args = parser.parse_args()
 
-    with open("accounts.yml", "r") as f:
+    if args.accounts:
+        accounts_file = args.accounts
+    else:
+        accounts_file = "accounts.yml"
+
+    with open(accounts_file, "r") as f:
         accounts = yaml.load(f, Loader=yaml.FullLoader)
 
     for account in accounts:
